@@ -16,7 +16,9 @@ const TabBar = ({ children }) => {
             iconName = focused
               ? 'ios-information-circle'
               : 'ios-information-circle-outline';
-          } else if (route.name === 'Settings') {
+          } else if (route.name === 'Search') {
+            iconName = focused ? 'search-circle' : 'search-circle-outline';
+          } else if (route.name === 'Queue') {
             iconName = focused ? 'ios-list-box' : 'ios-list';
           }
           return <Ionicons name={iconName} size={size} color={color} />;

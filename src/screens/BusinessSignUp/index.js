@@ -2,21 +2,21 @@ import React, { useState } from 'react'
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview';
 
-import { signup } from '../../firebase/auth';
+import { businessSignup } from '../../firebase/auth';
 import styles from './styles';
 
-const SignUp = ({navigation}) => {
+const BusinessSignUp = ({navigation}) => {
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
     const onFooterLinkPress = () => {
-        navigation.navigate('Login')
+        navigation.navigate('SignIn')
     }
 
     const onRegisterPress = () => {
-        signup(email, password);
+        businessSignup(email, password);
     }
 
     return (
@@ -79,4 +79,4 @@ const SignUp = ({navigation}) => {
     )
 }
 
-export default SignUp;
+export default BusinessSignUp;

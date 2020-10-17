@@ -2,19 +2,21 @@ import React, { useState } from 'react'
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview';
 
-import { signin } from '../../firebase/auth';
+import { userSignup } from '../../firebase/auth';
 import styles from './styles';
 
-const SignIn = ({navigation}) => {
+const UserSignUp = ({navigation}) => {
+    const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
 
     const onFooterLinkPress = () => {
-        navigation.navigate('UserSignUp')
+        navigation.navigate('SignIn')
     }
 
-    const onLoginPress = () => {
-        signin(email, password);
+    const onRegisterPress = () => {
+        userSignup(email, password, fullName);
     }
 
     return (
@@ -25,6 +27,15 @@ const SignIn = ({navigation}) => {
                 <Image
                     style={styles.logo}
                     source={require('../../assets/icon.png')}
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Full Name'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setFullName(text)}
+                    value={fullName}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
                 />
                 <TextInput
                     style={styles.input}
@@ -45,17 +56,27 @@ const SignIn = ({navigation}) => {
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
+                <TextInput
+                    style={styles.input}
+                    placeholderTextColor="#aaaaaa"
+                    secureTextEntry
+                    placeholder='Confirm Password'
+                    onChangeText={(text) => setConfirmPassword(text)}
+                    value={confirmPassword}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => onLoginPress()}>
-                    <Text style={styles.buttonTitle}>Log in</Text>
+                    onPress={() => onRegisterPress()}>
+                    <Text style={styles.buttonTitle}>Create account</Text>
                 </TouchableOpacity>
                 <View style={styles.footerView}>
-                    <Text style={styles.footerText}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
+                    <Text style={styles.footerText}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
                 </View>
             </KeyboardAwareScrollView>
         </View>
     )
 }
 
-export default SignIn;
+export default UserSignUp;

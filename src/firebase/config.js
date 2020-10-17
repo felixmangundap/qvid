@@ -1,4 +1,9 @@
-import firebase from 'firebase';
+import * as firebase from 'firebase';
+import "firebase/auth";
+import "firebase/database";
+import "firebase/firestore";
+import "firebase/functions";
+import "firebase/storage";
 import {
   API_KEY,
   AUTH_DOMAIN,
@@ -26,5 +31,4 @@ if (!firebase.apps.length) {
 }
 
 export const auth = firebase.auth;
-export const db = firebase.database;
 export const firestore = firebase.firestore;

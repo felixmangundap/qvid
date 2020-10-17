@@ -1,14 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { auth } from './src/firebase/config'
 import 'react-native-gesture-handler';
 
-import { SignIn, Home, SignUp } from './src/screens'
+import { SignIn, UserSignUp, BusinessSignUp } from './src/screens'
+import { Home, Search } from './src/screens'
+import { auth, firestore } from './src/firebase/config'
 import TabBar from './src/components/TabBar';
 
 const Stack = createStackNavigator();
@@ -19,24 +19,21 @@ export default function App() {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    // const usersRef = firebase.firestore().collection('users');
+    const usersRef = firestore().collection('users');
     console.log('FETCHING');
     auth().onAuthStateChanged(user => {
       if (user) {
-        console.log('USER');
-        setUser('props');
-        setIsLoading(false);
-        // usersRef
-        //   .doc(user.uid)
-        //   .get()
-        //   .then((document) => {
-        //     const userData = document.data()
-        //     setLoading(false)
-        //     setUser(userData)
-        //   })
-        //   .catch((error) => {
-        //     setLoading(false)
-        //   });
+        usersRef
+          .doc(user.uid)
+          .get()
+          .then((document) => {
+            const userData = document.data()
+            setIsLoading(false)
+            setUser(userData)
+          })
+          .catch((error) => {
+            setLoading(false)
+          });
       } else {
         setIsLoading(false)
       }
@@ -44,9 +41,8 @@ export default function App() {
   }, []);
 
   if (isLoading) {
-
     // return <Stack.Screen name="Loading" component={Loading} />
-    return <></>
+    return <Text>Loading</Text>
   }
 
   return (
@@ -54,12 +50,14 @@ export default function App() {
       {!!user ? (
         <TabBar>
           <Tab.Screen name="Home" component={Home} />
-          <Tab.Screen name="Settings" component={Home} />
+          <Tab.Screen name="Search" component={Search} />
+          <Tab.Screen name="Queue" component={Home} />
         </TabBar>
       ) : (
         <Stack.Navigator headerMode="none">
           <Stack.Screen name="SignIn" component={SignIn} />
-          <Stack.Screen name="SignUp" component={SignUp} />
+          <Stack.Screen name="UserSignUp" component={UserSignUp} />
+          <Stack.Screen name="BusinessSignUp" component={BusinessSignUp} />
         </Stack.Navigator>
       )}
     </NavigationContainer>

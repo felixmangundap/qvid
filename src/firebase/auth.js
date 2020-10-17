@@ -1,18 +1,30 @@
 import { auth, firestore } from "./config";
 
-export const signup = (email, password, type) => {
+export const userSignup = (email, password, fullName) => {
   return auth().createUserWithEmailAndPassword(email, password)
-  // .then(registeredUser => {
-  //   firestore.collection("users")
-  //   .doc(registeredUser.user.uid)
-  //   .set({
-  //     uid: registeredUser.user.uid,
-  //     infoSetup: false,
-  //     type,
-  //     personal: [{}],
-  //     rooms: [{}],
-  //   })
-  // })
+  .then(registeredUser => {
+    firestore().collection("users")
+    .doc(registeredUser.user.uid)
+    .set({
+      uid: registeredUser.user.uid,
+      type: 'user',
+      fullName,
+      queues: [''],
+    })
+  })
+}
+
+export const businessSignup = (email, password) => {
+  return auth().createUserWithEmailAndPassword(email, password)
+  .then(registeredUser => {
+    firestore().collection("users")
+    .doc(registeredUser.user.uid)
+    .set({
+      uid: registeredUser.user.uid,
+      type: 'business',
+      businessId: '',
+    })
+  })
 }
 
 export const signin = (email, password) => {
