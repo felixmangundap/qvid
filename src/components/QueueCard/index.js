@@ -5,15 +5,14 @@ import styles from './styles'
 import Icon from 'react-native-vector-icons/Feather';
 import colors from '../../utils/colors';
 import moment from 'moment';
+
 const QueueCard = ({ store, address, image, interval, requirements, timeSlot, person, onPress }) => {
-
-
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.card}>
                 <View style={styles.top}>
-                    <Image source={image} style={styles.logo}/>
-                    <View>
+                    <Image source={{uri: image}} style={styles.logo}/>
+                    <View style={styles.textContainer}>
                         <Text
                             numberOfLines={1}
                             style={styles.storeName}
@@ -23,7 +22,7 @@ const QueueCard = ({ store, address, image, interval, requirements, timeSlot, pe
                         </Text>
                         <View style={styles.address}>
                         <Icon name={'map-pin'} size={15} color={colors.textBlack} />
-                        <Text style={styles.addressText}>{address}</Text>
+                        <Text style={styles.addressText} >{address}</Text>
                         </View>
                     </View>
                 </View>

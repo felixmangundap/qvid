@@ -5,57 +5,6 @@ import QueueCard from '../../components/QueueCard';
 import styles from './styles'
 import { auth, firestore } from '../../firebase/config'
 
-const stores = [
-    {
-        uid: '1',
-        store: 'Starbucks Reserve',
-        address: '1124 Pike St, Seattle',
-        image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
-        distance: '1.2 km',
-        requirements: [
-            'mask',
-            'dineIn',
-            'sanitizer',
-            'social'
-        ],
-        timeSlot: moment(),
-        person: 2,
-        interval: 30
-    },
-    {
-        uid: '2',
-        store: 'Starbucks Reserve',
-        address: '1124 Pike St, Seattle',
-        image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
-        distance: '1.2 km',
-        requirements: [
-            'mask',
-            'dineIn',
-            'sanitizer',
-            'social'
-        ],
-        timeSlot: moment(),
-        person: 2,
-        interval: 60
-    },
-    {
-        uid: '3',
-        store: 'Starbucks Reserve',
-        address: '1124 Pike St, Seattle',
-        image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
-        distance: '1.2 km',
-        requirements: [
-            'mask',
-            'dineIn',
-            'sanitizer',
-            'social'
-        ],
-        timeSlot: moment(),
-        person: 2,
-        interval: 60
-    },
-]
-
 const MyQueue = ({ navigation }) => {
     const [bookings, setBookings] = useState([]);
     const [bookingDetails, setBookingDetails] = useState([])

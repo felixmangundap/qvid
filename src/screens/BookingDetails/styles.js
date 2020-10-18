@@ -37,7 +37,6 @@ export default StyleSheet.create({
       alignSelf:"center",
         width: 70,
         height: 70,
-        backgroundColor: colors.qvidGreen,
         borderRadius: 10,
         marginBottom: 30,
     },

@@ -8,7 +8,6 @@ import DefaultButton from '../../components/DefaultButton';
 import Icon from 'react-native-vector-icons/Feather';
 import colors from '../../utils/colors'
 import moment from 'moment'
-// import QRCode from 'react-native-qrcode-generator';
 
 const BookingDetails = ({ route, navigation }) => {
     const { item } = route.params;
@@ -29,7 +28,7 @@ const BookingDetails = ({ route, navigation }) => {
                 <PageHeader onBack={() => navigation.goBack()} page={'My Ticket'} theme={'dark'}/>
                 <View style={styles.ticketContainer}>
                 <View style={styles.details}>
-                    <Image style={styles.logo}/>
+                    <Image source={{uri: image}} style={styles.logo}/>
                     <Text style={styles.storeName}>{store}</Text>
                     <View style={styles.address}>
                         <Icon name={'map-pin'} size={15} color={colors.textGrey} />
