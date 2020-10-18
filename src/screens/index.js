@@ -4,7 +4,8 @@ import StoreDetails from './StoreDetails';
 import StoreBooking from './StoreBooking';
 import SignIn from './SignIn';
 import UserSignUp from './UserSignUp';
-import BusinessSignUp from './UserSignUp';
+import BusinessSignUp from './BusinessSignUp';
+import SignUpChoice from './SignUpChoice';
 
 export {
   Home,
@@ -14,4 +15,5 @@ export {
   SignIn,
   UserSignUp,
   BusinessSignUp,
+  SignUpChoice,
 };

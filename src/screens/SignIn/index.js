@@ -10,7 +10,7 @@ const SignIn = ({navigation}) => {
     const [password, setPassword] = useState('')
 
     const onFooterLinkPress = () => {
-        navigation.navigate('UserSignUp')
+        navigation.navigate('SignUpChoice')
     }
 
     const onLoginPress = () => {
@@ -20,7 +20,8 @@ const SignIn = ({navigation}) => {
     return (
         <View style={styles.container}>
             <KeyboardAwareScrollView
-                style={{ flex: 1, width: '100%'}}
+                style={{ flex: 1, height: '100%', width:'100%'}} ContentContainerStyle={{flexGrow: 1,
+                justifyContent: 'center'}}
                 keyboardShouldPersistTaps="always">
                 <Image
                     style={styles.logo}

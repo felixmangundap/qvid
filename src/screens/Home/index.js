@@ -41,7 +41,7 @@ const Home = (props) => {
                 // onPress={() => navigation.navigate('StoreDetails', { item })}
             />
             </View>
-            {/* <Button onPress={() => signout()} title="Logout" color="#841584"/> */}
+            <Button onPress={() => signout()} title="Logout" color="#841584"/>
         </SafeAreaView>
     )
 }

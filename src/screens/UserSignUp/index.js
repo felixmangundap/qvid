@@ -22,12 +22,17 @@ const UserSignUp = ({navigation}) => {
     return (
         <View style={styles.container}>
             <KeyboardAwareScrollView
-                style={{ flex: 1, width: '100%' }}
+                style={{ flex: 1, height: '100%', width:'100%'}} ContentContainerStyle={{flexGrow: 1,
+                justifyContent: 'center'}}
                 keyboardShouldPersistTaps="always">
                 <Image
                     style={styles.logo}
-                    source={require('../../assets/icon.png')}
+                    source={require('../../assets/whitelogoicon.png')}
                 />
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}>Register</Text>
+                    <Text style={styles.subtitle}>Register your user account</Text>
+                </View>
                 <TextInput
                     style={styles.input}
                     placeholder='Full Name'
@@ -73,6 +78,12 @@ const UserSignUp = ({navigation}) => {
                 </TouchableOpacity>
                 <View style={styles.footerView}>
                     <Text style={styles.footerText}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
+                </View>
+                <View style={styles.wave}>
+                    <Image
+                        style={{width: '100%', height:300, resizeMode: 'contain'}}
+                        source={require('../../assets/greenwave.png')}
+                    />
                 </View>
             </KeyboardAwareScrollView>
         </View>
