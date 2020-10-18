@@ -6,8 +6,10 @@ import SignIn from './SignIn';
 import MyQueue from './MyQueue';
 import UserSignUp from './UserSignUp';
 import BusinessSignUp from './BusinessSignUp';
+import BusinessHome from './BusinessHome';
 import SignUpChoice from './SignUpChoice';
 import BookingDetails from './BookingDetails';
+import ScanScreen from './ScanScreen';
 
 export {
   Home,
@@ -17,6 +19,8 @@ export {
   SignIn,
   UserSignUp,
   BusinessSignUp,
+  BusinessHome,
+  ScanScreen,
   SignUpChoice,
   MyQueue,
   BookingDetails

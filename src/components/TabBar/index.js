@@ -19,6 +19,8 @@ const TabBar = ({ children }) => {
             iconName = 'magnify';
           } else if (route.name === 'Queue') {
             iconName = 'credit-card-scan-outline';
+          } else if (route.name === 'Scan') {
+            iconName = 'barcode-scan';
           }
           return <Icon name={iconName} size={size} color={color} />;
         },
