@@ -18,16 +18,19 @@ export default StyleSheet.create({
         paddingRight: 28,
     },
     ticketContainer: {
-      marginTop: 40,
+      marginTop: 30,
       backgroundColor: colors.qvidWhite,
       width: '100%',
       borderRadius: 10,
       padding: 10
     },
     barcodeContainer: {
+      marginVertical: 25,
       backgroundColor: colors.qvidGreen,
       padding: 15,
       borderRadius: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
 
     },
     details: {

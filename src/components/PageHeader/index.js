@@ -14,7 +14,7 @@ const PageHeader = ({ onBack, page, theme }) => {
             <TouchableOpacity onPress={onBack}>
                 <Icon name={'chevron-left'} size={30} color={iconColor} />
             </TouchableOpacity>
-            <Text style={styles.pageTitle}>{ page }</Text>
+            <Text style={[styles.pageTitle, headerTheme === 'dark' ? styles.dark : styles.light]}>{ page }</Text>
             <View style={styles.hiddenPadding}/>
         </View>
     )

@@ -16,7 +16,7 @@ const MyQueue = ({ navigation }) => {
         .get()
         .then(querySnapshot => {
             querySnapshot.forEach(function(doc) {
-                tempBooking.push(doc.data());
+                tempBooking.push({uid: doc.id, ...doc.data()});
             })
 
             setBookings(tempBooking);
