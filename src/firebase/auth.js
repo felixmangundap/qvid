@@ -14,15 +14,30 @@ export const userSignup = (email, password, fullName) => {
   })
 }
 
-export const businessSignup = (email, password) => {
-  return auth().createUserWithEmailAndPassword(email, password)
-  .then(registeredUser => {
-    firestore().collection("users")
-    .doc(registeredUser.user.uid)
-    .set({
-      uid: registeredUser.user.uid,
-      type: 'business',
-      businessId: '',
+export const businessSignup = (data) => {
+  return auth().createUserWithEmailAndPassword(data.email, data.password)
+  .then(registeredShop => {
+    firestore().collection("stores")
+    .add({
+      address: data.address,
+      distance: data.distance,
+      image: data.image,
+      interval: data.interval,
+      limit: data.limit,
+      timeClose: data.timeClose,
+      timeOpen: data.timeOpen,
+      store: data.store,
+      requirements: data.requirements
+    })
+    .then(docRef => {
+      const userId = registeredShop.user.uid;
+      firestore().collection("users")
+        .doc(userId)
+        .set({
+          uid: userId,
+          type: 'business',
+          businessId: docRef.id,
+        })
     })
   })
 }

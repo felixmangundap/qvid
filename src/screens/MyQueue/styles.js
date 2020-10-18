@@ -64,7 +64,7 @@ export default StyleSheet.create({
         bottom: 0
     },
     heading: {
-        marginTop: 150,
+        marginTop: 140,
         zIndex: 1
     },
     title: {

@@ -10,6 +10,7 @@ import BusinessHome from './BusinessHome';
 import SignUpChoice from './SignUpChoice';
 import BookingDetails from './BookingDetails';
 import ScanScreen from './ScanScreen';
+import WelcomePage from './WelcomePage';
 
 export {
   Home,
@@ -23,5 +24,6 @@ export {
   ScanScreen,
   SignUpChoice,
   MyQueue,
-  BookingDetails
+  BookingDetails,
+  WelcomePage
 };
