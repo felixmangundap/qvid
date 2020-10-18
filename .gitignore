@@ -104,4 +104,4 @@ dist
 .tern-port
 
 .expo/
-src/firebase/config
+src/firebase/config.js
