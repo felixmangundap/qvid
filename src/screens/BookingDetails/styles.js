@@ -28,15 +28,15 @@ export default StyleSheet.create({
       backgroundColor: colors.qvidGreen,
       padding: 15,
       borderRadius: 10,
-      
+
     },
     details: {
         marginTop: 15,
     },
     logo: {
       alignSelf:"center",
-        width: 50,
-        height: 50,
+        width: 70,
+        height: 70,
         backgroundColor: colors.qvidGreen,
         borderRadius: 10,
         marginBottom: 30,

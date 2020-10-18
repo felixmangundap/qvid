@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import { FlatList, Text, View, SafeAreaView, Button } from 'react-native'
 import QueueCard from '../../components/QueueCard';
 import styles from './styles'
+import { auth, firestore } from '../../firebase/config'
 
 const stores = [
     {
@@ -56,13 +57,47 @@ const stores = [
 ]
 
 const MyQueue = ({ navigation }) => {
+    const [bookings, setBookings] = useState([]);
+    const [bookingDetails, setBookingDetails] = useState([])
+
+    useEffect(() => {
+        const tempBooking = [];
+        firestore().collection('queues')
+        .where('userId', '==', auth().currentUser.uid)
+        .get()
+        .then(querySnapshot => {
+            querySnapshot.forEach(function(doc) {
+                tempBooking.push(doc.data());
+            })
+
+            setBookings(tempBooking);
+        })
+    }, [])
+
+    useEffect(() => {
+        const tempDetails = [];
+        bookings.forEach(obj => {
+            firestore().collection('stores')
+            .doc(obj.storeId)
+            .get()
+            .then(document => {
+                const newObj = {
+                    ...obj,
+                    ...document.data()
+                }
+                tempDetails.push(newObj);
+
+                setBookingDetails(tempDetails);
+            })
+        })
+    }, [bookings])
+
     const renderItem = ({ item }) => {
         const {
             uid,
             store, 
             address,
             image,
-            distance,
             requirements,
             timeSlot,
             person,
@@ -74,7 +109,6 @@ const MyQueue = ({ navigation }) => {
                 store={store}
                 address={address}
                 image={image}
-                distance={distance}
                 person={person}
                 timeSlot={timeSlot}
                 requirements={requirements}
@@ -89,7 +123,7 @@ const MyQueue = ({ navigation }) => {
             <View style={styles.formContainer}>
                 <FlatList
                     style={styles.flatList}
-                    data={stores}
+                    data={bookingDetails}
                     renderItem={renderItem}
                     ItemSeparatorComponent={() => <View style={styles.separator} />}
                     keyExtractor={item => item.uid}
