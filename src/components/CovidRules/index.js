@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
 
 import styles from './styles'
-import dineInIcon from '../../assets/dineIn.png';
+import dineInIcon from '../../assets/spoon.png';
+import maskIcon from '../../assets/mask.png';
+import crowdIcon from '../../assets/crowd.png';
+import sanitizerIcon from '../../assets/sanitizer.png';
 
 const CovidRules = ({ requirements, iconOnly }) => {
     const [mask, setMask] = useState(false);
@@ -28,10 +31,10 @@ const CovidRules = ({ requirements, iconOnly }) => {
 
     return (
         <View style={styles.covidRules}>
-            {mask ? pill('Masks Mandatory', dineInIcon) : null}
+            {mask ? pill('Masks Mandatory', maskIcon) : null}
             {dineIn ? pill('Dine-In', dineInIcon) : null}
-            {sanitizer ? pill('Hand Sanitizer', dineInIcon) : null}
-            {social ? pill('Crowd Limit', dineInIcon) : null}
+            {sanitizer ? pill('Hand Sanitizer', sanitizerIcon) : null}
+            {social ? pill('Crowd Limit', crowdIcon) : null}
         </View>
     )
 }
