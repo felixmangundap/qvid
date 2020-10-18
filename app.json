@@ -22,5 +22,21 @@
     "web": {
       "favicon": "./assets/favicon.png"
     }
+  },
+  "android": {
+    "splash": {
+      "mdpi": "./assets/splash-mdpi.png",
+      "hdpi": "./assets/splash-hdpi.png",
+      "xhdpi": "./assets/splash-xhdpi.png",
+      "xxhdpi": "./assets/splash-xxhdpi.png",
+      "xxxhdpi": "./assets/splash-xxxhdpi.png",
+      "gravity": "fill"
+    }
+  },
+  "ios": {
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover"
+    }
   }
 }
