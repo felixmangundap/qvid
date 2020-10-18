@@ -51,5 +51,9 @@ export default StyleSheet.create({
         fontSize: 17,
         color: colors.textGrey,
         marginBottom: 10,
+    },
+    buttonContainer: {
+        width: '100%',
+        marginTop: 'auto',
     }
 })

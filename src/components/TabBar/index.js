@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import colors from '../../utils/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,20 +14,22 @@ const TabBar = ({ children }) => {
           let iconName;
 
           if (route.name === 'Home') {
-            iconName = focused
-              ? 'ios-information-circle'
-              : 'ios-information-circle-outline';
+            iconName = 'home-outline';
           } else if (route.name === 'Search') {
-            iconName = focused ? 'search-circle' : 'search-circle-outline';
+            iconName = 'magnify';
           } else if (route.name === 'Queue') {
-            iconName = focused ? 'ios-list-box' : 'ios-list';
+            iconName = 'credit-card-scan-outline';
           }
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return <Icon name={iconName} size={size} color={color} />;
         },
       })}
       tabBarOptions={{
-        activeTintColor: 'tomato',
-        inactiveTintColor: 'gray',
+        activeTintColor: colors.qvidGreen,
+        inactiveTintColor: colors.qvidDarkGrey,
+        showLabel: false,
+        style: {
+          borderWidth: 0,
+        }
       }}
     >
       {children}

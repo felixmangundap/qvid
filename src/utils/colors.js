@@ -1,6 +1,7 @@
 
 const colors = {
   qvidBlack: '#04242E',
+  qvidDarkGrey: '#777',
   qvidGreen: '#4ADBB6',
   qvidGrey: '#FAFAFA',
   qvidRed: '#F4ADAD',

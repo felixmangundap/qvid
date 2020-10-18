@@ -21,11 +21,17 @@ export default StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         height: 30,
-        paddingHorizontal: 10,
+        paddingHorizontal: 12,
         marginRight: 10,
         marginBottom: 8,
         borderRadius: 20,
         backgroundColor: colors.qvidGreen,
+        overflow: "visible",
+
+        shadowOffset: {  width: 0,  height: 3  },
+        shadowColor: '#7b7b7b',
+        shadowOpacity: 0.15,
+        shadowRadius: 12,
     },
     iconImage: {
         height: 20,

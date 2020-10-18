@@ -19,7 +19,7 @@ const Tab = createBottomTabNavigator();
 const SearchStackScreen = () => {
   return (
     <SearchStack.Navigator headerMode="none">
-      <SearchStack.Screen name="Search" component={Search} />
+      <SearchStack.Screen name="SearchPage" component={Search} />
       <SearchStack.Screen name="StoreDetails" component={StoreDetails} />
     </SearchStack.Navigator>
   );
@@ -61,9 +61,9 @@ export default function App() {
       <StatusBar style="auto" />
       {!!user ? (
         <TabBar>
-          <Tab.Screen name="SearchTab" component={SearchStackScreen} />
-          <Tab.Screen name="HomeTab" component={Search} />
-          <Tab.Screen name="QueueTab" component={Home} />
+          <Tab.Screen name="Search" component={SearchStackScreen} />
+          <Tab.Screen name="Home" component={Search} />
+          <Tab.Screen name="Queue" component={Home} />
         </TabBar>
       ) : (
         <Stack.Navigator headerMode="none">
