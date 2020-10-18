@@ -8,6 +8,7 @@ import UserSignUp from './UserSignUp';
 import BusinessSignUp from './BusinessSignUp';
 import SignUpChoice from './SignUpChoice';
 import BookingDetails from './BookingDetails';
+import WelcomePage from './WelcomePage';
 
 export {
   Home,
@@ -19,5 +20,6 @@ export {
   BusinessSignUp,
   SignUpChoice,
   MyQueue,
-  BookingDetails
+  BookingDetails,
+  WelcomePage
 };

@@ -8,7 +8,6 @@ export default StyleSheet.create({
         backgroundColor: '#04242E',
     },
     titleContainer: {
-        marginTop: 100,
         left: 30
     },
     title: {
@@ -29,6 +28,13 @@ export default StyleSheet.create({
         alignSelf: "baseline",
         marginTop: 10,
         left: 30
+    },
+    phone: {
+        height: 250,
+        width: 250,
+        resizeMode: 'contain',
+        margin: 30,
+        alignSelf: 'center'
     },
     input: {
         height: 48,
@@ -74,8 +80,7 @@ export default StyleSheet.create({
     footerView: {
         flex: 1,
         alignItems: "center",
-        marginTop: 20,
-        marginBottom: 100
+        marginTop: 20
     },
     footerText: {
         fontSize: 16,
@@ -87,6 +92,7 @@ export default StyleSheet.create({
         fontSize: 16
     },
     wave: {
-        bottom: 0,
+        bottom: 115,
+        zIndex: -1
     }
 })
