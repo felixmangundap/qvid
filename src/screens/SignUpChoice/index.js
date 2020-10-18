@@ -40,7 +40,7 @@ const SignUpChoice = ({navigation}) => {
                 </View>
                 <View style={styles.wave}>
                     <Image
-                        style={{width: '100%', height:300, resizeMode: 'contain'}}
+                        style={{width: '100%', height:685, resizeMode: 'contain'}}
                         source={require('../../assets/greenwave.png')}
                     />
                 </View>
