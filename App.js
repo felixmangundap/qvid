@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -13,6 +14,16 @@ import TabBar from './src/components/TabBar';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+const SearchStack = createStackNavigator();
+
+const SearchStackScreen = () => {
+  return (
+    <SearchStack.Navigator headerMode="none">
+      <SearchStack.Screen name="Search" component={Search} />
+      <SearchStack.Screen name="StoreDetails" component={Home} />
+    </SearchStack.Navigator>
+  );
+}
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -47,10 +58,11 @@ export default function App() {
 
   return (
     <NavigationContainer>
+      <StatusBar style="auto" />
       {!!user ? (
         <TabBar>
-          <Tab.Screen name="Home" component={Home} />
-          <Tab.Screen name="Search" component={Search} />
+          <Tab.Screen name="Home" component={Search} />
+          <Tab.Screen name="Search" component={SearchStackScreen} />
           <Tab.Screen name="Queue" component={Home} />
         </TabBar>
       ) : (
