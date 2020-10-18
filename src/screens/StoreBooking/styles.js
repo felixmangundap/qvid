@@ -20,28 +20,38 @@ export default StyleSheet.create({
     details: {
         marginTop: 40,
     },
-    logo: {
-        width: 120,
-        height: 120,
-        backgroundColor: colors.qvidGreen,
-        borderRadius: 10,
-        marginBottom: 30,
-    },
     storeName: {
         fontWeight: 'bold',
         fontSize: 24,
         color: colors.textBlack,
         marginBottom: 10,
     },
-    storeAddress: {
-        fontSize: 17,
-        color: colors.textGrey,
-        marginBottom: 10,
-    },
     storeDetails: {
         fontSize: 17,
         color: colors.textGrey,
-        marginBottom: 10,
+        marginBottom: 25,
+    },
+    person: {
+        marginBottom: 25,
+    },
+    personText: {
+        fontWeight: '600',
+        fontSize: 17,
+        marginBottom: 5,
+    },
+    personMax: {
+        fontSize: 13,
+        marginBottom: 25,
+    },
+    time: {},
+    timeText: {
+        fontWeight: '600',
+        fontSize: 17,
+        marginBottom: 5,
+    },
+    timeMax: {
+        fontSize: 13,
+        marginBottom: 25,
     },
     buttonContainer: {
         width: '100%',

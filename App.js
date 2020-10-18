@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import 'react-native-gesture-handler';
 
 import { SignIn, UserSignUp, BusinessSignUp } from './src/screens'
-import { Home, Search, StoreDetails } from './src/screens'
+import { Home, Search, StoreDetails, StoreBooking } from './src/screens'
 import { auth, firestore } from './src/firebase/config'
 import TabBar from './src/components/TabBar';
 
@@ -21,6 +21,7 @@ const SearchStackScreen = () => {
     <SearchStack.Navigator headerMode="none">
       <SearchStack.Screen name="SearchPage" component={Search} />
       <SearchStack.Screen name="StoreDetails" component={StoreDetails} />
+      <SearchStack.Screen name="StoreBooking" component={StoreBooking} />
     </SearchStack.Navigator>
   );
 }
