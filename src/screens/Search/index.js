@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { FlatList, Text, View, SafeAreaView, Button } from 'react-native'
+import { FlatList, Text, View, SafeAreaView, Image } from 'react-native'
 import moment from 'moment';
 
 import { signout } from '../../firebase/auth';
 import CustomSearchBar from '../../components/SearchBar';
 import SearchCard from '../../components/SearchCard';
 import styles from './styles'
+import emptySearch from '../../assets/emptySearch.png';
 
 const stores = [
     {
@@ -14,8 +15,9 @@ const stores = [
         address: '1124 Pike St, Seattle',
         image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
         limit: 30,
-        timeOpen: moment().hour(8).minute(0),
-        timeClose: moment().hour(17).minute(0),
+        timeOpen: moment().hour(8).minute(0).second(0),
+        timeClose: moment().hour(17).minute(0).second(0),
+        interval: 60,
         open: 'Open',
         distance: '1.2 km',
         requirements: [
@@ -33,6 +35,7 @@ const stores = [
         limit: 30,
         timeOpen: moment().hour(8),
         timeClose: moment().hour(17),
+        interval: 60,
         open: 'Open',
         distance: '1.2 km',
         requirements: [
@@ -50,6 +53,25 @@ const stores = [
         limit: 30,
         timeOpen: moment().hour(8),
         timeClose: moment().hour(17),
+        interval: 60,
+        open: 'Open',
+        distance: '1.2 km',
+        requirements: [
+            'mask',
+            'dineIn',
+            'sanitizer',
+            'social'
+        ],
+    },
+    {
+        uid: '4',
+        store: 'Starbucks Not Reserve',
+        address: '1124 Pike St, Seattle',
+        image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
+        limit: 30,
+        timeOpen: moment().hour(8),
+        timeClose: moment().hour(17),
+        interval: 60,
         open: 'Open',
         distance: '1.2 km',
         requirements: [
@@ -87,23 +109,29 @@ const Search = ({ navigation }) => {
         )
     };
 
-    const renderSearchBar = () => (
-        <CustomSearchBar
-            placeHolder='Search for places'
-            onChangeText={(text) => setSearch(text)}
-            onClear={() => setSearch('')}
-            value={search}
-        />
-    )
-
     return (
         <View style={styles.container}>
             <View style={styles.formContainer}>
+                <View style={styles.searchBarContainer}>
+                    <CustomSearchBar
+                        placeHolder='Search for places'
+                        onChangeText={(text) => setSearch(text)}
+                        onClear={() => setSearch('')}
+                        value={search}
+                    />
+                </View>
                 <FlatList
+                    showsVerticalScrollIndicator={false}
                     style={styles.flatList}
+                    contentContainerStyle={{ flexGrow: 1 }}
                     data={stores}
                     renderItem={renderItem}
-                    ListHeaderComponent={renderSearchBar}
+                    ListEmptyComponent={() => (
+                        <View style={styles.emptySearch}>
+                            <Image source={emptySearch} />
+                            <Text style={styles.emptyText}>Search for places that you want to queue in.</Text>
+                        </View>
+                    )}
                     ListHeaderComponentStyle={styles.searchBarContainer}
                     ItemSeparatorComponent={() => <View style={styles.separator} />}
                     keyExtractor={item => item.uid}
