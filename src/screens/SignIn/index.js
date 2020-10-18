@@ -20,12 +20,16 @@ const SignIn = ({navigation}) => {
     return (
         <View style={styles.container}>
             <KeyboardAwareScrollView
-                style={{ flex: 1, width: '100%' }}
+                style={{ flex: 1, width: '100%'}}
                 keyboardShouldPersistTaps="always">
                 <Image
                     style={styles.logo}
-                    source={require('../../assets/icon.png')}
+                    source={require('../../assets/whitelogoicon.png')}
                 />
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}>Login</Text>
+                    <Text style={styles.subtitle}>Login with an existing account</Text>
+                </View>
                 <TextInput
                     style={styles.input}
                     placeholder='E-mail'
@@ -51,7 +55,13 @@ const SignIn = ({navigation}) => {
                     <Text style={styles.buttonTitle}>Log in</Text>
                 </TouchableOpacity>
                 <View style={styles.footerView}>
-                    <Text style={styles.footerText}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
+                    <Text style={styles.footerText}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Register</Text></Text>
+                </View>
+                <View style={styles.wave}>
+                    <Image
+                        style={{width: '100%', height:300, resizeMode: 'contain'}}
+                        source={require('../../assets/greenwave.png')}
+                    />
                 </View>
             </KeyboardAwareScrollView>
         </View>
