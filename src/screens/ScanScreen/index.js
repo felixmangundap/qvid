@@ -23,23 +23,21 @@ const ScanScreen = ({ navigation }) => {
     return <Text>No access to camera</Text>;
   }
 
-  const checkIn = (id) => {
+  const checkIn = ({type, data}) => {
     firestore().collection('queues')
-    .doc(id)
+    .doc(data)
     .update({status: true})
-    .then(Alert.alert('Person Checked In'))
+    .then(doc => {
+      Alert.alert('Person Checked In');
+    })
     .catch(error => Alert.alert('ERROR'));
   }
 
   return (
     <View style={{ flex: 1 }}>
-      <Camera
+      <BarCodeScanner
         style={{ flex: 1 }}
-        type={type}
-        barCodeScannerSettings={{
-            barCodeTypes: [BarCodeScanner.Constants.BarCodeType.qr],
-            onBarCodeScanned: (({type, data}) => {checkIn(data)})
-        }}
+        onBarCodeScanned={checkIn}
       >
         <View
           style={{
@@ -63,7 +61,7 @@ const ScanScreen = ({ navigation }) => {
             <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
           </TouchableOpacity>
         </View>
-      </Camera>
+      </BarCodeScanner>
     </View>
   );
 }
