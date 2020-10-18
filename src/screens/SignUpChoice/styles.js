@@ -5,7 +5,7 @@ export default StyleSheet.create({
         flex: 1,
         height: '100%',
         alignItems: 'center',
-        backgroundColor: '#04242E'
+        backgroundColor: '#04242E',
     },
     titleContainer: {
         left: 30
@@ -50,15 +50,30 @@ export default StyleSheet.create({
         alignItems: "center",
         justifyContent: 'center'
     },
+    buttonWhite: {
+        backgroundColor: 'white',
+        marginLeft: 30,
+        marginRight: 30,
+        marginTop: 20,
+        height: 48,
+        borderRadius: 5,
+        alignItems: "center",
+        justifyContent: 'center'
+    },
     buttonTitle: {
         color: 'white',
+        fontSize: 16,
+        fontWeight: "bold"
+    },
+    buttonTitleGreen: {
+        color: '#43C9A8',
         fontSize: 16,
         fontWeight: "bold"
     },
     footerView: {
         flex: 1,
         alignItems: "center",
-        marginTop: 150
+        marginTop: 20
     },
     footerText: {
         fontSize: 16,

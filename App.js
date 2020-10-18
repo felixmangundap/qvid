@@ -10,7 +10,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import 'react-native-gesture-handler';
 
 import { SignIn, UserSignUp, BusinessSignUp } from './src/screens'
-import { Home, Search, StoreDetails, StoreBooking, MyQueue, BookingDetails } from './src/screens'
+import { Home, Search, StoreDetails, StoreBooking, MyQueue, BookingDetails, SignUpChoice } from './src/screens'
 import { auth, firestore } from './src/firebase/config'
 import TabBar from './src/components/TabBar';
 
@@ -84,6 +84,7 @@ export default function App() {
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="UserSignUp" component={UserSignUp} />
           <Stack.Screen name="BusinessSignUp" component={BusinessSignUp} />
+          <Stack.Screen name="SignUpChoice" component={SignUpChoice} />
         </Stack.Navigator>
       )}
     </NavigationContainer>
