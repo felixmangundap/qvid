@@ -52,7 +52,7 @@ const BookingDetails = ({ route, navigation }) => {
                             <Text style={styles.storeTime}>{person}</Text>
                         </View>
                         <View style={styles.requirementCard}>
-                            <CovidRules requirements={requirements} iconOnly />
+                            <CovidRules requirements={requirements} iconOnly isCenter />
                             <View style={styles.barcodeContainer}>
                                 <QRCode
                                     size={175}

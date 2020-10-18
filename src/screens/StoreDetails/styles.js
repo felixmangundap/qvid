@@ -14,11 +14,83 @@ export default StyleSheet.create({
         width: '100%',
         paddingTop: 10,
         paddingBottom: 25,
-        paddingLeft: 28,
-        paddingRight: 28,
     },
     details: {
         marginTop: 40,
+        paddingLeft: 28,
+        paddingRight: 28,
+    },
+    moreDetails: {
+        marginTop: 40,
+    },
+    sendIcon: {
+        paddingLeft: 28,
+        paddingRight: 28,
+        position: "absolute",
+        padding: 20
+    },
+    callIcon: {
+        paddingLeft: 28,
+        paddingRight: 28,
+        position: "absolute",
+        padding: 20
+    }, 
+    calendarIcon: {
+        paddingLeft: 28,
+        paddingRight: 28,
+        position: "absolute",
+        padding: 20
+    },
+    getDirection: {
+        position: "absolute",
+        padding: 18,
+        width: '100%',
+        fontSize: 13,
+        fontWeight: 'bold',
+        color: colors.qvidGreen,
+        textAlign: "right",
+        paddingRight: 28,
+    },
+    call: {
+        position: "absolute",
+        padding: 18,
+        width: '100%',
+        fontSize: 13,
+        fontWeight: 'bold',
+        color: colors.qvidGreen,
+        textAlign: "right",
+        paddingRight: 28,
+    },
+    storeDirection: {
+        borderTopWidth: 1,
+        padding: 18,
+        width: '100%',
+        borderColor: '#ddd',
+        fontSize: 15,
+        color: colors.textGrey,
+        paddingLeft: 60,
+        paddingRight: 28,
+    }, 
+    storePhone: {
+        borderTopWidth: 1,
+        padding: 18,
+        width: '100%',
+        borderColor: '#ddd',
+        fontSize: 15,
+        color: colors.textGrey,
+        paddingLeft: 60,
+        paddingRight: 28,
+    },
+    storeSlot: {
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        padding: 18,
+        width: '100%',
+        borderColor: '#ddd',
+        fontSize: 15,
+        color: colors.textGrey,
+        paddingLeft: 60,
+        paddingRight: 28,
     },
     logo: {
         width: 120,
@@ -45,5 +117,7 @@ export default StyleSheet.create({
     buttonContainer: {
         width: '100%',
         marginTop: 'auto',
+        paddingLeft: 28,
+        paddingRight: 28,
     }
 })

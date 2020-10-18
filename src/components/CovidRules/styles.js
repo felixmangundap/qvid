@@ -17,6 +17,9 @@ export default StyleSheet.create({
         backgroundColor: colors.qvidGreen,
         marginRight: 10,
     },
+    center: {
+        marginLeft: 10,
+    },
     pill: {
         flexDirection: 'row',
         alignItems: 'center',

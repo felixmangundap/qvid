@@ -83,6 +83,12 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 15,
     },
+    titleExplore: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 15,
+        marginTop: 25,
+    },
     flatList: {
         overflow: 'visible',
     },

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview';
+import { StatusBar } from 'expo-status-bar';
 
 import { businessSignup } from '../../firebase/auth';
 import styles from './styles';
@@ -24,7 +25,20 @@ const BusinessSignUp = ({navigation}) => {
     }
 
     const onRegisterPress = () => {
-        // businessSignup(email, password);
+        const data = {
+            store: name,
+            email: email,
+            password: password,
+            address: address,
+            distance: "1.4km",
+            image: "a",
+            limit: limit,
+            interval: maxTime,
+            timeClose: closingHour,
+            timeOpen: openingHour,
+            requirements: ["mask", "sanitizer", "crowd", "dineIn"]
+        }
+        businessSignup(data);
     }
 
     const pageOne = () => {
@@ -34,6 +48,7 @@ const BusinessSignUp = ({navigation}) => {
                     <Text style={styles.title}>Register</Text>
                     <Text style={styles.subtitle}>Register your business account</Text>
                 </View>
+                <StatusBar style="light" />
                 <TextInput
                     style={styles.input}
                     placeholder='Business Name'
@@ -150,7 +165,7 @@ const BusinessSignUp = ({navigation}) => {
                     placeholder='Number of crowd limit'
                     placeholderTextColor="#aaaaaa"
                     onChangeText={(text) => setLimit(text)}
-                    value={name}
+                    value={limit}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
@@ -180,7 +195,7 @@ const BusinessSignUp = ({navigation}) => {
                     placeholder='Maximum number of user per queue'
                     placeholderTextColor="#aaaaaa"
                     onChangeText={(text) => setMaxQueue(text)}
-                    value={name}
+                    value={maxQueue}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
@@ -189,7 +204,7 @@ const BusinessSignUp = ({navigation}) => {
                     placeholder='Maximum timeframe per queue'
                     placeholderTextColor="#aaaaaa"
                     onChangeText={(text) => setMaxTime(text)}
-                    value={name}
+                    value={maxTime}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
