@@ -40,7 +40,6 @@ export default StyleSheet.create({
     },
     prereq: {
         marginTop: 15,
-        flexDirection: 'row',
     },
     icons: {
         marginRight: 10,

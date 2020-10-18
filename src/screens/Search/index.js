@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { FlatList, Text, View, SafeAreaView, Button } from 'react-native'
-import CustomSearchBar from '../../components/SearchBar';
-import SearchCard from '../../components/SearchCard';
+import moment from 'moment';
 
 import { signout } from '../../firebase/auth';
+import CustomSearchBar from '../../components/SearchBar';
+import SearchCard from '../../components/SearchCard';
 import styles from './styles'
 
 const stores = [
@@ -12,13 +13,16 @@ const stores = [
         store: 'Starbucks Reserve',
         address: '1124 Pike St, Seattle',
         image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
+        limit: 30,
+        timeOpen: moment().hour(8).minute(0),
+        timeClose: moment().hour(17).minute(0),
         open: 'Open',
         distance: '1.2 km',
         requirements: [
             'mask',
-            'takeOut',
+            'dineIn',
             'sanitizer',
-            'socialDistancing'
+            'social'
         ],
     },
     {
@@ -26,13 +30,16 @@ const stores = [
         store: 'Starbucks Reserve',
         address: '1124 Pike St, Seattle',
         image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
+        limit: 30,
+        timeOpen: moment().hour(8),
+        timeClose: moment().hour(17),
         open: 'Open',
         distance: '1.2 km',
         requirements: [
             'mask',
-            'takeOut',
+            'dineIn',
             'sanitizer',
-            'socialDistancing'
+            'social'
         ],
     },
     {
@@ -40,13 +47,16 @@ const stores = [
         store: 'Starbucks Not Reserve',
         address: '1124 Pike St, Seattle',
         image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
+        limit: 30,
+        timeOpen: moment().hour(8),
+        timeClose: moment().hour(17),
         open: 'Open',
         distance: '1.2 km',
         requirements: [
             'mask',
-            'takeOut',
+            'dineIn',
             'sanitizer',
-            'socialDistancing'
+            'social'
         ],
     },
 ]
@@ -72,7 +82,7 @@ const Search = ({ navigation }) => {
                 open={open}
                 distance={distance}
                 requirements={requirements}
-                onPress={() => navigation.navigate('StoreDetails', {})}
+                onPress={() => navigation.navigate('StoreDetails', { item })}
             />
         )
     };

@@ -1,6 +1,5 @@
 import React from 'react'
 import { TextInput } from 'react-native'
-import { SearchBar } from 'react-native-elements';
 import styles from './styles'
 
 const CustomSearchBar = ({ onChangeText, onClear, placeHolder, value }) => {

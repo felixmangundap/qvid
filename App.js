@@ -8,19 +8,20 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import 'react-native-gesture-handler';
 
 import { SignIn, UserSignUp, BusinessSignUp } from './src/screens'
-import { Home, Search } from './src/screens'
+import { Home, Search, StoreDetails, StoreBooking } from './src/screens'
 import { auth, firestore } from './src/firebase/config'
 import TabBar from './src/components/TabBar';
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 const SearchStack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const SearchStackScreen = () => {
   return (
     <SearchStack.Navigator headerMode="none">
-      <SearchStack.Screen name="Search" component={Search} />
-      <SearchStack.Screen name="StoreDetails" component={Home} />
+      <SearchStack.Screen name="SearchPage" component={Search} />
+      <SearchStack.Screen name="StoreDetails" component={StoreDetails} />
+      <SearchStack.Screen name="StoreBooking" component={StoreBooking} />
     </SearchStack.Navigator>
   );
 }
@@ -61,8 +62,8 @@ export default function App() {
       <StatusBar style="auto" />
       {!!user ? (
         <TabBar>
-          <Tab.Screen name="Home" component={Search} />
           <Tab.Screen name="Search" component={SearchStackScreen} />
+          <Tab.Screen name="Home" component={Search} />
           <Tab.Screen name="Queue" component={Home} />
         </TabBar>
       ) : (
