@@ -29,7 +29,7 @@ const StoreDetails = ({ route, navigation }) => {
                     <CovidRules requirements={requirements} />
                 </View>
                 <View style={styles.buttonContainer}>
-                    <DefaultButton title={'Book A Queue'} onPress={() => navigation.navigate('Booking')}/>
+                    <DefaultButton title={'Book A Queue'} onPress={() => navigation.navigate('StoreBooking', { item })}/>
                 </View>
             </View>
         </View>

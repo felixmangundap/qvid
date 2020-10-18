@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import moment from 'moment'
-import { Text, View, SafeAreaView, Button } from 'react-native'
-import { signout } from '../../firebase/auth';
+import { FlatList, Text, View, SafeAreaView, Button } from 'react-native'
+import QueueCard from '../../components/QueueCard';
+import styles from './styles'
 
 const stores = [
     {
@@ -16,15 +17,15 @@ const stores = [
             'sanitizer',
             'social'
         ],
-        time: moment(),
-
+        timeSlot: moment(),
+        person: 2,
+        interval: 30
     },
     {
         uid: '2',
         store: 'Starbucks Reserve',
         address: '1124 Pike St, Seattle',
         image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
-        open: 'Open',
         distance: '1.2 km',
         requirements: [
             'mask',
@@ -32,13 +33,15 @@ const stores = [
             'sanitizer',
             'social'
         ],
+        timeSlot: moment(),
+        person: 2,
+        interval: 60
     },
     {
         uid: '3',
-        store: 'Starbucks Not Reserve',
+        store: 'Starbucks Reserve',
         address: '1124 Pike St, Seattle',
         image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
-        open: 'Open',
         distance: '1.2 km',
         requirements: [
             'mask',
@@ -46,20 +49,53 @@ const stores = [
             'sanitizer',
             'social'
         ],
+        timeSlot: moment(),
+        person: 2,
+        interval: 60
     },
 ]
 
-const MyQueue = (props) => {
+const MyQueue = ({ navigation }) => {
+    const renderItem = ({ item }) => {
+        const {
+            uid,
+            store, 
+            address,
+            image,
+            distance,
+            requirements,
+            timeSlot,
+            person,
+            interval
+        } = item;
+
+        return (
+            <QueueCard
+                store={store}
+                address={address}
+                image={image}
+                distance={distance}
+                person={person}
+                timeSlot={timeSlot}
+                requirements={requirements}
+                interval={interval}
+                onPress={() => navigation.navigate('BookingDetails', { item })}
+            />
+        )
+    }
+    
     return (
-        <SafeAreaView
-            style={{
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'space-around',
-            }}>
-            <Text>Can you see this?</Text>
-            <Button onPress={() => signout()} title="Logout" color="#841584"/>
-        </SafeAreaView>
+        <View style={styles.container}>
+            <View style={styles.formContainer}>
+                <FlatList
+                    style={styles.flatList}
+                    data={stores}
+                    renderItem={renderItem}
+                    ItemSeparatorComponent={() => <View style={styles.separator} />}
+                    keyExtractor={item => item.uid}
+                />
+            </View>
+        </View>
     )
 }
 
