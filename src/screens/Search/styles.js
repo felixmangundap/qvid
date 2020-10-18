@@ -19,9 +19,11 @@ export default StyleSheet.create({
     },
     flatList: {
         overflow: 'visible',
+        zIndex: -1,
     },
     searchBarContainer: {
         marginBottom: 25,
+        zIndex: 1,
     },
     separator: {
         marginTop: 20,

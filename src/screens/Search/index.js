@@ -14,8 +14,9 @@ const stores = [
         address: '1124 Pike St, Seattle',
         image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
         limit: 30,
-        timeOpen: moment().hour(8).minute(0),
-        timeClose: moment().hour(17).minute(0),
+        timeOpen: moment().hour(8).minute(0).second(0),
+        timeClose: moment().hour(17).minute(0).second(0),
+        interval: 30,
         open: 'Open',
         distance: '1.2 km',
         requirements: [
@@ -33,6 +34,7 @@ const stores = [
         limit: 30,
         timeOpen: moment().hour(8),
         timeClose: moment().hour(17),
+        interval: 30,
         open: 'Open',
         distance: '1.2 km',
         requirements: [
@@ -50,6 +52,25 @@ const stores = [
         limit: 30,
         timeOpen: moment().hour(8),
         timeClose: moment().hour(17),
+        interval: 30,
+        open: 'Open',
+        distance: '1.2 km',
+        requirements: [
+            'mask',
+            'dineIn',
+            'sanitizer',
+            'social'
+        ],
+    },
+    {
+        uid: '4',
+        store: 'Starbucks Not Reserve',
+        address: '1124 Pike St, Seattle',
+        image: 'https://upload.wikimedia.org/wikipedia/en/d/d3/Starbucks_Corporation_Logo_2011.svg',
+        limit: 30,
+        timeOpen: moment().hour(8),
+        timeClose: moment().hour(17),
+        interval: 30,
         open: 'Open',
         distance: '1.2 km',
         requirements: [
@@ -87,23 +108,33 @@ const Search = ({ navigation }) => {
         )
     };
 
-    const renderSearchBar = () => (
-        <CustomSearchBar
-            placeHolder='Search for places'
-            onChangeText={(text) => setSearch(text)}
-            onClear={() => setSearch('')}
-            value={search}
-        />
-    )
+    // const renderSearchBar = () => (
+        
+    // )
 
     return (
         <View style={styles.container}>
             <View style={styles.formContainer}>
+                <View style={styles.searchBarContainer}>
+                    <CustomSearchBar
+                        placeHolder='Search for places'
+                        onChangeText={(text) => setSearch(text)}
+                        onClear={() => setSearch('')}
+                        value={search}
+                    />
+                </View>
                 <FlatList
                     style={styles.flatList}
                     data={stores}
                     renderItem={renderItem}
-                    ListHeaderComponent={renderSearchBar}
+                    // ListHeaderComponent={() => 
+                    //     <CustomSearchBar
+                    //         placeHolder='Search for places'
+                    //         onChangeText={(text) => setSearch(text)}
+                    //         onClear={() => setSearch('')}
+                    //         value={search}
+                    //     />
+                    // }
                     ListHeaderComponentStyle={styles.searchBarContainer}
                     ItemSeparatorComponent={() => <View style={styles.separator} />}
                     keyExtractor={item => item.uid}

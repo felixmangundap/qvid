@@ -13,7 +13,7 @@ export default StyleSheet.create({
         height: '100%',
         width: '100%',
         paddingTop: 10,
-        paddingBottom: 25,
+        // paddingBottom: 25,
         paddingLeft: 28,
         paddingRight: 28,
     },
@@ -53,8 +53,21 @@ export default StyleSheet.create({
         fontSize: 13,
         marginBottom: 25,
     },
+    review: {
+        marginBottom: 25,
+    },
+    reviewText: {
+        fontWeight: '600',
+        fontSize: 17,
+        marginBottom: 5,
+    },
+    reviewDate: {
+        fontSize: 17,
+        marginBottom: 5,
+    },
     buttonContainer: {
         width: '100%',
         marginTop: 'auto',
-    }
+        marginBottom: 25,
+    },
 })
