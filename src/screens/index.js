@@ -7,7 +7,6 @@ import MyQueue from './MyQueue';
 import UserSignUp from './UserSignUp';
 import BusinessSignUp from './BusinessSignUp';
 import SignUpChoice from './SignUpChoice';
-import BusinessSignUp from './UserSignUp';
 import BookingDetails from './BookingDetails';
 
 export {

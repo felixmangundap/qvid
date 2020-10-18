@@ -1,4 +1,5 @@
 import React from 'react'
+import { StatusBar } from 'expo-status-bar';
 import { Text, View, Image, TouchableOpacity } from 'react-native'
 import moment from 'moment'
 import QRCode from 'react-native-qrcode-svg';
@@ -28,6 +29,7 @@ const BookingDetails = ({ route, navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.formContainer}>
+                <StatusBar style="light" />
                 <PageHeader onBack={() => navigation.goBack()} page={'My Ticket'} theme={'light'}/>
                 <View style={styles.ticketContainer}>
                     <View style={styles.details}>
@@ -58,6 +60,7 @@ const BookingDetails = ({ route, navigation }) => {
                                     color={colors.qvidGreen}
                                     logo={{uri: base64logo}}
                                     logoBackgroundColor={colors.qvidGreen}
+                                    logoRadius={5}
                                 />
                             </View>
                         </View>

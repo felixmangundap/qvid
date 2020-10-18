@@ -74,6 +74,7 @@ export default StyleSheet.create({
     },
     requirementCard: {
       alignSelf: "center",
+      alignItems: 'center',
     },
     storeDetails: {
         fontSize: 17,
@@ -82,7 +83,7 @@ export default StyleSheet.create({
     },
     buttonContainer: {
       flexDirection: 'row',
-        width: '100%',
-        marginTop: 'auto',
+      width: '100%',
+      marginTop: 'auto',
     }
 })
