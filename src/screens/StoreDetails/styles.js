@@ -23,7 +23,6 @@ export default StyleSheet.create({
     logo: {
         width: 120,
         height: 120,
-        backgroundColor: colors.qvidGreen,
         borderRadius: 10,
         marginBottom: 30,
     },

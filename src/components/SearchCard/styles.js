@@ -20,7 +20,6 @@ export default StyleSheet.create({
     logo: {
         width: 50,
         height: 50,
-        backgroundColor: colors.qvidGreen,
         borderRadius: 10,
         marginRight: 25,
     },
@@ -29,6 +28,9 @@ export default StyleSheet.create({
         fontSize: 17,
         color: colors.textBlack,
         marginBottom: 5,
+    },
+    textContainer: {
+        flex: 1
     },
     address: {
         fontSize: 13,
@@ -40,6 +42,11 @@ export default StyleSheet.create({
     },
     prereq: {
         marginTop: 15,
+    },
+    image: {
+        width: 20,
+        height: 50,
+        resizeMode: "contain"
     },
     icons: {
         marginRight: 10,

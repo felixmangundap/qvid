@@ -36,7 +36,7 @@ const StoreBooking = ({ route, navigation }) => {
                 <PageHeader onBack={() => navigation.goBack()} page={'Book A Queue'} theme={'dark'}/>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.details}>
-                        <Image style={styles.logo}/>
+                        <Image source={{uri: image}} style={styles.logo}/>
                         <Text style={styles.storeName}>{store}</Text>
                         <Text style={styles.storeDetails}>{address} ∙ {open}</Text>
                     </View>

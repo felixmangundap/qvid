@@ -148,8 +148,7 @@ const Search = ({ navigation }) => {
                     renderItem={renderItem}
                     ListEmptyComponent={() => (
                         <View style={styles.emptySearch}>
-                            <Image source={emptySearch} />
-                            <Text style={styles.emptyText}>Search for places that you want to queue in.</Text>
+                            <Image style={styles.image} source={require('../../assets/Categories.png')} />
                         </View>
                     )}
                     ListHeaderComponentStyle={styles.searchBarContainer}

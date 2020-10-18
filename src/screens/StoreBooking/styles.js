@@ -17,10 +17,17 @@ export default StyleSheet.create({
         paddingLeft: 28,
         paddingRight: 28,
     },
+    logo: {
+        width: 50,
+        height: 50,
+        borderRadius: 10,
+        marginRight: 25,
+    },
     details: {
         marginTop: 40,
     },
     storeName: {
+        marginTop: 10,
         fontWeight: 'bold',
         fontSize: 24,
         color: colors.textBlack,
