@@ -7,7 +7,7 @@ import maskIcon from '../../assets/mask.png';
 import crowdIcon from '../../assets/crowd.png';
 import sanitizerIcon from '../../assets/sanitizer.png';
 
-const CovidRules = ({ requirements, iconOnly }) => {
+const CovidRules = ({ requirements, isCenter, iconOnly }) => {
     const [mask, setMask] = useState(false);
     const [sanitizer, setSanitizer] = useState(false);
     const [dineIn, setDineIn] = useState(false);
@@ -23,7 +23,7 @@ const CovidRules = ({ requirements, iconOnly }) => {
     }, [])
 
     const pill = (type, icon) => (
-        <View style={!!iconOnly ? styles.icon : styles.pill}>
+        <View style={[!!iconOnly ? styles.icon : styles.pill, !!isCenter ? styles.center : null]}>
             <Image source={icon} style={[styles.iconImage, !iconOnly ? styles.textIcon : null]}/>
             {!iconOnly ? <Text style={styles.iconText}>{type}</Text> : null }
         </View>

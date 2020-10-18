@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, SafeAreaView, FlatList, Image } from 'react-native'
+import { Text, View, FlatList, Image } from 'react-native'
 
 import QueueCard from '../../components/QueueCard';
 import { auth, firestore } from '../../firebase/config'
