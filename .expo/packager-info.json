@@ -4,6 +4,7 @@
   "packagerNgrokUrl": null,
   "ngrokPid": null,
   "devToolsPort": 19002,
-  "packagerPort": 19005,
-  "packagerPid": 79082
+  "packagerPort": 19001,
+  "packagerPid": 2556,
+  "webpackServerPort": null
 }
