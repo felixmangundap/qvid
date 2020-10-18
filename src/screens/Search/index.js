@@ -16,9 +16,9 @@ const stores = [
         distance: '1.2 km',
         requirements: [
             'mask',
-            'takeOut',
+            'dineIn',
             'sanitizer',
-            'socialDistancing'
+            'social'
         ],
     },
     {
@@ -30,9 +30,9 @@ const stores = [
         distance: '1.2 km',
         requirements: [
             'mask',
-            'takeOut',
+            'dineIn',
             'sanitizer',
-            'socialDistancing'
+            'social'
         ],
     },
     {
@@ -44,9 +44,9 @@ const stores = [
         distance: '1.2 km',
         requirements: [
             'mask',
-            'takeOut',
+            'dineIn',
             'sanitizer',
-            'socialDistancing'
+            'social'
         ],
     },
 ]
@@ -72,7 +72,7 @@ const Search = ({ navigation }) => {
                 open={open}
                 distance={distance}
                 requirements={requirements}
-                onPress={() => navigation.navigate('StoreDetails', {})}
+                onPress={() => navigation.navigate('StoreDetails', { item })}
             />
         )
     };

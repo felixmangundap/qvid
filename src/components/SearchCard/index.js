@@ -1,10 +1,9 @@
 import React from 'react'
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
+import CovidRules from '../CovidRules';
 import styles from './styles'
 
 const SearchCard = ({ store, address, image, open, distance, requirements, onPress }) => {
-    const renderIcons = () => requirements.map(req => <Text>{req}</Text>);
-
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.card}>
@@ -23,7 +22,7 @@ const SearchCard = ({ store, address, image, open, distance, requirements, onPre
                 </View>
                 <Text style={styles.status}>{open} ∙ {distance}</Text>
                 <View style={styles.prereq}>
-                    {renderIcons()}
+                    <CovidRules requirements={requirements} iconOnly/>
                 </View>
             </View>
         </TouchableWithoutFeedback>
