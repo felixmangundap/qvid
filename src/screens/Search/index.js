@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FlatList, Text, View, SafeAreaView, Image } from 'react-native'
 import moment from 'moment';
 
 import { signout } from '../../firebase/auth';
+import { firestore } from '../../firebase/config';
 import CustomSearchBar from '../../components/SearchBar';
 import SearchCard from '../../components/SearchCard';
 import styles from './styles'
@@ -85,6 +86,25 @@ const stores = [
 
 const Search = ({ navigation }) => {
     const [search, setSearch] = useState('');
+    const [searchResult, setSearchResult] = useState('');
+
+    useEffect(() => {
+        const searchTerm = search.replace(/[^0-9a-zA-Z]+/g, '').toLowerCase();
+        const storeRef = firestore().collection('stores');
+        storeRef
+            .where('search', '==',  searchTerm )
+            .get()
+            .then(function (querySnapshot) {
+                let storeList = [];
+                querySnapshot.forEach(function (doc) {
+                    storeList.push({uid: doc.id, ...doc.data()});
+                });
+                setSearchResult(storeList);
+            })
+            .catch((error) => {
+                setLoading(false)
+            });
+    }, [search])
 
     const renderItem = ({ item }) => {
         const {
@@ -124,7 +144,7 @@ const Search = ({ navigation }) => {
                     showsVerticalScrollIndicator={false}
                     style={styles.flatList}
                     contentContainerStyle={{ flexGrow: 1 }}
-                    data={stores}
+                    data={searchResult}
                     renderItem={renderItem}
                     ListEmptyComponent={() => (
                         <View style={styles.emptySearch}>
