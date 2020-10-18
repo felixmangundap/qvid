@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview';
+import { StatusBar } from 'expo-status-bar';
 
 import { businessSignup } from '../../firebase/auth';
 import styles from './styles';
@@ -34,6 +35,7 @@ const BusinessSignUp = ({navigation}) => {
                     <Text style={styles.title}>Register</Text>
                     <Text style={styles.subtitle}>Register your business account</Text>
                 </View>
+                <StatusBar style="light" />
                 <TextInput
                     style={styles.input}
                     placeholder='Business Name'
