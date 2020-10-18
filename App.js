@@ -9,7 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import 'react-native-gesture-handler';
 
-import { SignIn, UserSignUp, BusinessSignUp } from './src/screens'
+import { SignIn, UserSignUp, BusinessSignUp, BusinessHome, ScanScreen } from './src/screens'
 import { Home, Search, StoreDetails, StoreBooking, MyQueue, BookingDetails, SignUpChoice, WelcomePage } from './src/screens'
 import { auth, firestore } from './src/firebase/config'
 import TabBar from './src/components/TabBar';
