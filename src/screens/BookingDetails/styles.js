@@ -81,6 +81,18 @@ export default StyleSheet.create({
         color: colors.textGrey,
         marginBottom: 10,
     },
+    box: {
+      height: 175,
+      width: 175,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    textCenter: {
+      textAlign: "center",
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: colors.qvidWhite,
+    },  
     buttonContainer: {
       flexDirection: 'row',
       width: '100%',

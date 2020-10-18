@@ -73,12 +73,18 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
-      {!!user ? (
-        <TabBar>
-          <Tab.Screen name="Home" component={Home} />
-          <Tab.Screen name="Search" component={SearchStackScreen} />
-          <Tab.Screen name="Queue" component={MyQueueStackScreen} />
-        </TabBar>
+      {!!user ?
+        user.type === 'user' ? (
+          <TabBar>
+            <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="Search" component={SearchStackScreen} />
+            <Tab.Screen name="Queue" component={MyQueueStackScreen} />
+          </TabBar>
+        ) : (
+          <TabBar>
+            <Tab.Screen name="Home" component={BusinessHome} />
+            <Tab.Screen name="Scan" component={ScanScreen} />
+          </TabBar>
       ) : (
         <Stack.Navigator headerMode="none">
           <Stack.Screen name="WelcomePage" component={WelcomePage} />
