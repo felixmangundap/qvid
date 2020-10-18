@@ -4,6 +4,7 @@ import moment from 'moment'
 
 import PageHeader from '../../components/PageHeader';
 import CovidRules from '../../components/CovidRules';
+import { auth, firestore } from '../../firebase/config'
 import styles from './styles';
 import DefaultButton from '../../components/DefaultButton';
 import PersonCounter from '../../components/PersonCounter';
@@ -28,6 +29,21 @@ const StoreBooking = ({ route, navigation }) => {
     } = item;
 
     const confirmBooking = () => {
+        const bookingData = {
+            userId: auth().currentUser.uid,
+            storeId: uid,
+            timeSlot: moment(timeSlot).format(),
+            person,
+        };
+        
+        firestore().collection('queues')
+        .add(bookingData)
+        .then(document => {
+            navigation.navigate('Home');
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
     }
 
     return (

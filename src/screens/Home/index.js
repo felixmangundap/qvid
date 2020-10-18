@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, SafeAreaView, FlatList, Image } from 'react-native'
+import { Text, View, FlatList, Image } from 'react-native'
 
 import QueueCard from '../../components/QueueCard';
 import { auth, firestore } from '../../firebase/config'
+import { signout } from '../../firebase/auth'
 import styles from './styles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Home = ({ navigation }) => {
     const [bookings, setBookings] = useState([]);
@@ -90,7 +92,9 @@ const Home = ({ navigation }) => {
             </View>
             <View style={styles.bottomContainer}>
                 <View>
-                    <Text style={styles.title}>Today's Queues</Text>
+                    <TouchableOpacity style={{padding: 0}} onPress={() => signout()}>
+                        <Text style={styles.title}>Today's Queues</Text>
+                    </TouchableOpacity>
                     <FlatList
                         showsHorizontalScrollIndicator={false}
                         horizontal
