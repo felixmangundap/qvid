@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
+import { LogBox } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -39,9 +41,11 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [user, setUser] = useState(null)
 
+  LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+  LogBox.ignoreAllLogs();//Ignore all log notifications
+
   useEffect(() => {
     const usersRef = firestore().collection('users');
-    console.log('FETCHING');
     auth().onAuthStateChanged(user => {
       if (user) {
         usersRef

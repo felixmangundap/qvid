@@ -1,27 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
 
 import styles from './styles'
 import dineInIcon from '../../assets/dineIn.png';
 
 const CovidRules = ({ requirements, iconOnly }) => {
-    let mask = false;
-    let sanitizer = false;
-    let dineIn = false;
-    let social = false;
+    const [mask, setMask] = useState(false);
+    const [sanitizer, setSanitizer] = useState(false);
+    const [dineIn, setDineIn] = useState(false);
+    const [social, setSocial] = useState(false);
 
-    requirements.forEach(req => {
-        switch (req) {
-            case 'mask':
-                mask = true;
-            case 'sanitizer':
-                sanitizer = true;
-            case 'dineIn':
-                dineIn = true;
-            case 'social':
-                social = true;
-        }
-    })
+    useEffect(() => {
+        requirements.forEach(req => {
+            if (req === 'mask') setMask(true);
+            else if (req === 'sanitizer') setSanitizer(true);
+            else if (req === 'dineIn') setDineIn(true);
+            else if (req === 'social') setSocial(true);
+        })
+    }, [])
 
     const pill = (type, icon) => (
         <View style={!!iconOnly ? styles.icon : styles.pill}>
@@ -32,10 +28,10 @@ const CovidRules = ({ requirements, iconOnly }) => {
 
     return (
         <View style={styles.covidRules}>
-            {!!mask ? pill('Masks Mandatory', dineInIcon) : null}
-            {!!dineIn ? pill('Dine-In', dineInIcon) : null}
-            {!!sanitizer ? pill('Hand Sanitizer', dineInIcon) : null}
-            {!!social ? pill('Crowd Limit', dineInIcon) : null}
+            {mask ? pill('Masks Mandatory', dineInIcon) : null}
+            {dineIn ? pill('Dine-In', dineInIcon) : null}
+            {sanitizer ? pill('Hand Sanitizer', dineInIcon) : null}
+            {social ? pill('Crowd Limit', dineInIcon) : null}
         </View>
     )
 }
