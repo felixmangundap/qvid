@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
+import { LogBox } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import 'react-native-gesture-handler';
 
-import { SignIn, UserSignUp, BusinessSignUp, SignUpChoice } from './src/screens'
-import { Home, Search, StoreDetails, StoreBooking } from './src/screens'
+import { SignIn, UserSignUp, BusinessSignUp } from './src/screens'
+import { Home, Search, StoreDetails, StoreBooking, MyQueue, BookingDetails, SignUpChoice } from './src/screens'
 import { auth, firestore } from './src/firebase/config'
 import TabBar from './src/components/TabBar';
 
@@ -26,13 +28,24 @@ const SearchStackScreen = () => {
   );
 }
 
+const MyQueueStackScreen = () => {
+  return (
+    <SearchStack.Navigator headerMode="none">
+      <SearchStack.Screen name="BookingPage" component={MyQueue} />
+      <SearchStack.Screen name="BookingDetails" component={BookingDetails} />
+    </SearchStack.Navigator>
+  )
+}
+
 export default function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [user, setUser] = useState(null)
 
+  LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+  LogBox.ignoreAllLogs();//Ignore all log notifications
+
   useEffect(() => {
     const usersRef = firestore().collection('users');
-    console.log('FETCHING');
     auth().onAuthStateChanged(user => {
       if (user) {
         usersRef
@@ -63,8 +76,8 @@ export default function App() {
       {!!user ? (
         <TabBar>
           <Tab.Screen name="Search" component={SearchStackScreen} />
-          <Tab.Screen name="Home" component={Search} />
-          <Tab.Screen name="Queue" component={Home} />
+          <Tab.Screen name="Home" component={Home} />
+          <Tab.Screen name="Queue" component={MyQueueStackScreen} />
         </TabBar>
       ) : (
         <Stack.Navigator headerMode="none">

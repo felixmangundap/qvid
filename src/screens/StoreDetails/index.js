@@ -22,7 +22,7 @@ const StoreDetails = ({ route, navigation }) => {
             <View style={styles.formContainer}>
                 <PageHeader onBack={() => navigation.goBack()} page={'Details'} theme={'dark'}/>
                 <View style={styles.details}>
-                    <Image style={styles.logo}/>
+                    <Image source={{uri: image}} style={styles.logo}/>
                     <Text style={styles.storeName}>{store}</Text>
                     <Text style={styles.storeAddress}>{address}</Text>
                     <Text style={styles.storeDetails}>{open} ∙ {distance}</Text>

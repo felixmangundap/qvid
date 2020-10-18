@@ -19,11 +19,31 @@ export default StyleSheet.create({
     },
     flatList: {
         overflow: 'visible',
+        flex: 1,
+        zIndex: -1,
     },
     searchBarContainer: {
         marginBottom: 25,
+        zIndex: 1,
     },
     separator: {
         marginTop: 20,
+    },
+    emptySearch: {
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    image: {
+        width: "100%",
+        height: "100%",
+        resizeMode: "contain"
+    },
+    emptyText: {
+        textAlign: 'center',
+        fontSize: 15,
+        color: colors.qvidDarkGrey,
+        width: '60%',
+        marginTop: 15,
     }
 })

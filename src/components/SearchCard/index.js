@@ -8,8 +8,8 @@ const SearchCard = ({ store, address, image, open, distance, requirements, onPre
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.card}>
                 <View style={styles.top}>
-                    <Image source={image} style={styles.logo}/>
-                    <View>
+                    <Image source={{uri: image}} style={styles.logo}/>
+                    <View style={styles.textContainer}>
                         <Text
                             numberOfLines={1}
                             style={styles.storeName}

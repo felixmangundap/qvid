@@ -12,6 +12,21 @@ export default StyleSheet.create({
         shadowOpacity: 0.15,
         shadowRadius: 50,
     },
+    date: {
+      flexDirection: 'row',
+      alignItems: 'center'
+    },
+    dateText: {
+      marginLeft: 12
+    },
+    person: {
+      marginTop: 6,
+      flexDirection: 'row',
+      alignItems: 'center'
+    },
+    personText: {
+      marginLeft: 12
+    },
     top: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -30,9 +45,14 @@ export default StyleSheet.create({
         marginBottom: 5,
     },
     textContainer: {
-        flex: 1
+      flex: 1
     },
     address: {
+      flexDirection: 'row',
+      alignItems: 'center'
+    },
+    addressText: {
+        marginLeft: 5,
         fontSize: 13,
         color: colors.textGrey,
     },
@@ -42,11 +62,6 @@ export default StyleSheet.create({
     },
     prereq: {
         marginTop: 15,
-    },
-    image: {
-        width: 20,
-        height: 50,
-        resizeMode: "contain"
     },
     icons: {
         marginRight: 10,
