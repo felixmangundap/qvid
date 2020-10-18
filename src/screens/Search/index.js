@@ -17,7 +17,7 @@ const stores = [
         limit: 30,
         timeOpen: moment().hour(8).minute(0).second(0),
         timeClose: moment().hour(17).minute(0).second(0),
-        interval: 30,
+        interval: 60,
         open: 'Open',
         distance: '1.2 km',
         requirements: [
@@ -35,7 +35,7 @@ const stores = [
         limit: 30,
         timeOpen: moment().hour(8),
         timeClose: moment().hour(17),
-        interval: 30,
+        interval: 60,
         open: 'Open',
         distance: '1.2 km',
         requirements: [
@@ -53,7 +53,7 @@ const stores = [
         limit: 30,
         timeOpen: moment().hour(8),
         timeClose: moment().hour(17),
-        interval: 30,
+        interval: 60,
         open: 'Open',
         distance: '1.2 km',
         requirements: [
@@ -71,7 +71,7 @@ const stores = [
         limit: 30,
         timeOpen: moment().hour(8),
         timeClose: moment().hour(17),
-        interval: 30,
+        interval: 60,
         open: 'Open',
         distance: '1.2 km',
         requirements: [

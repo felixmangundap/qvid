@@ -31,7 +31,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         width: '100%',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         marginVertical: 25,
     },
     timePill: {
