@@ -28,8 +28,6 @@ const StoreBooking = ({ route, navigation }) => {
     } = item;
 
     const confirmBooking = () => {
-        console.log(moment(timeOpen).add(60, 'm').format('h:mmA'));
-        console.log(moment(timeClose).format('dddd, MMMM Do YYYY, h:mmA'));
     }
 
     return (

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { FlatList, Text, View, SafeAreaView, Button } from 'react-native'
+import { FlatList, Text, View, SafeAreaView, Image } from 'react-native'
 import moment from 'moment';
 
 import { signout } from '../../firebase/auth';
 import CustomSearchBar from '../../components/SearchBar';
 import SearchCard from '../../components/SearchCard';
 import styles from './styles'
+import emptySearch from '../../assets/emptySearch.png';
 
 const stores = [
     {
@@ -108,10 +109,6 @@ const Search = ({ navigation }) => {
         )
     };
 
-    // const renderSearchBar = () => (
-        
-    // )
-
     return (
         <View style={styles.container}>
             <View style={styles.formContainer}>
@@ -124,17 +121,17 @@ const Search = ({ navigation }) => {
                     />
                 </View>
                 <FlatList
+                    showsVerticalScrollIndicator={false}
                     style={styles.flatList}
+                    contentContainerStyle={{ flexGrow: 1 }}
                     data={stores}
                     renderItem={renderItem}
-                    // ListHeaderComponent={() => 
-                    //     <CustomSearchBar
-                    //         placeHolder='Search for places'
-                    //         onChangeText={(text) => setSearch(text)}
-                    //         onClear={() => setSearch('')}
-                    //         value={search}
-                    //     />
-                    // }
+                    ListEmptyComponent={() => (
+                        <View style={styles.emptySearch}>
+                            <Image source={emptySearch} />
+                            <Text style={styles.emptyText}>Search for places that you want to queue in.</Text>
+                        </View>
+                    )}
                     ListHeaderComponentStyle={styles.searchBarContainer}
                     ItemSeparatorComponent={() => <View style={styles.separator} />}
                     keyExtractor={item => item.uid}
