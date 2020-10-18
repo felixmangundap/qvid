@@ -83,7 +83,7 @@ const MyQueue = ({ navigation }) => {
                     source={require('../../assets/whitelogo.png')}
                 />
                 <View style={styles.heading}>
-                    <Text style={{color: 'white', fontSize: 34, fontWeight: 'bold'}}>My Queues</Text>
+                    <Text style={{color: 'white', fontSize: 34, fontWeight: 'bold', paddingBottom: 10}}>My Queues</Text>
                     <Text style={{color: 'white', fontSize: 17}}>You have {bookings.length} upcoming queues today.</Text>
                 </View>
             </View>
