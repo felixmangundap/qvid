@@ -75,8 +75,8 @@ export default function App() {
       <StatusBar style="auto" />
       {!!user ? (
         <TabBar>
-          <Tab.Screen name="Search" component={SearchStackScreen} />
           <Tab.Screen name="Home" component={Home} />
+          <Tab.Screen name="Search" component={SearchStackScreen} />
           <Tab.Screen name="Queue" component={MyQueueStackScreen} />
         </TabBar>
       ) : (

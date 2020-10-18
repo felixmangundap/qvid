@@ -71,6 +71,7 @@ const MyQueue = ({ navigation }) => {
         <View style={styles.container}>
             <View style={styles.formContainer}>
                 <FlatList
+                    showsVerticalScrollIndicator={false}
                     style={styles.flatList}
                     data={bookingDetails}
                     renderItem={renderItem}
